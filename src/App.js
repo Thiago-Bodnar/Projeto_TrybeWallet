@@ -8,7 +8,7 @@ function App() {
     <div>
       Hello, TrybeWallet!
       <Switch>
-        <Route path="/" component={ Login } />
+        <Route path="/" exact component={ Login } />
         <Route path="/carteira" component={ Wallet } />
       </Switch>
     </div>
