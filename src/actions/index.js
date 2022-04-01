@@ -20,5 +20,6 @@ export const fetchCurrencies = () => async (dispatch) => {
   dispatch(requestCurrencies());
   const response = await fetch('https://economia.awesomeapi.com.br/json/all');
   const currencies = await response.json();
-  dispatch(receiveCurrencies(currencies));
+  dispatch(receiveCurrencies(Object.keys(currencies)
+    .filter((currencie) => currencie !== 'USDT')));
 };
