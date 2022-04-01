@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENCIES, REQUEST_CURRENCIES } from '../actions';
+import { ADD_EXPENSE, RECEIVE_CURRENCIES, REQUEST_CURRENCIES } from '../actions';
 
 const INITIAL_STATE = {
   isFetching: false,
@@ -19,6 +19,17 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       currencies: action.currencies,
       isFetching: false,
+    };
+  }
+  case ADD_EXPENSE: {
+    const expensesLength = state.expenses.length;
+    const expense = {
+      id: !expensesLength ? 0 : expensesLength,
+      ...action.expense,
+    };
+    return {
+      ...state,
+      expenses: [...state.expenses, expense],
     };
   }
   default:
