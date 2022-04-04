@@ -5,6 +5,7 @@ export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 export const RECEIVE_CURRENCIES = 'RECEIVE_CURRENCIES';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const START_EDITING = 'START_EDITING';
 
 export const setEmail = (userInfo) => ({
   type: USER_LOGIN, userInfo,
@@ -20,6 +21,10 @@ export const receiveCurrencies = (currencies) => ({
 
 export const addExpense = (expense, exchangeRates) => ({
   type: ADD_EXPENSE, expense: { ...expense, exchangeRates },
+});
+
+export const startEditing = () => ({
+  type: START_EDITING,
 });
 
 export const fetchCurrencies = () => async (dispatch) => {

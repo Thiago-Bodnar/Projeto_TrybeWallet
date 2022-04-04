@@ -40,7 +40,7 @@ class ExpensesForm extends Component {
       method,
       tag,
     } = this.state;
-    const { currencies } = this.props;
+    const { currencies, isEditing } = this.props;
     return (
       <form>
         <label htmlFor="value-input">
@@ -111,9 +111,13 @@ class ExpensesForm extends Component {
             <option value="Saúde">Saúde</option>
           </select>
         </label>
-        <button type="button" onClick={ this.handleClick }>
-          Adicionar despesa
-        </button>
+        {
+          isEditing ? <button type="button">Editar Despesa</button>
+            :
+            <button type="button" onClick={ this.handleClick }>
+              Adicionar despesa
+            </button>
+        }
       </form>
     );
   }
@@ -122,6 +126,7 @@ class ExpensesForm extends Component {
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  isEditing: state.wallet.isEditing,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -131,6 +136,7 @@ const mapDispatchToProps = (dispatch) => ({
 ExpensesForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.any).isRequired,
   setExpenseToState: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesForm);

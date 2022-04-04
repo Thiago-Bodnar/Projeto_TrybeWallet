@@ -3,9 +3,11 @@ import {
   RECEIVE_CURRENCIES,
   REMOVE_EXPENSE,
   REQUEST_CURRENCIES,
+  START_EDITING,
 } from '../actions';
 
 const INITIAL_STATE = {
+  isEditing: false,
   isFetching: false,
   currencies: [],
   expenses: [],
@@ -35,12 +37,19 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: [...state.expenses, expense],
+      isFetching: false,
     };
   }
   case REMOVE_EXPENSE: {
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense.id !== action.id),
+    };
+  }
+  case START_EDITING: {
+    return {
+      ...state,
+      isEditing: true,
     };
   }
   default:
