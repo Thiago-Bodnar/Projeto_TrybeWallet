@@ -1,4 +1,9 @@
-import { ADD_EXPENSE, RECEIVE_CURRENCIES, REQUEST_CURRENCIES } from '../actions';
+import {
+  ADD_EXPENSE,
+  RECEIVE_CURRENCIES,
+  REMOVE_EXPENSE,
+  REQUEST_CURRENCIES,
+} from '../actions';
 
 const INITIAL_STATE = {
   isFetching: false,
@@ -30,6 +35,12 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: [...state.expenses, expense],
+    };
+  }
+  case REMOVE_EXPENSE: {
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== action.id),
     };
   }
   default:
