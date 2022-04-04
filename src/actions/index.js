@@ -17,8 +17,8 @@ export const receiveCurrencies = (currencies) => ({
   type: RECEIVE_CURRENCIES, currencies,
 });
 
-export const addExpense = (expense, currenciesRates) => ({
-  type: ADD_EXPENSE, expense: { ...expense, currenciesRates },
+export const addExpense = (expense, exchangeRates) => ({
+  type: ADD_EXPENSE, expense: { ...expense, exchangeRates },
 });
 
 export const fetchCurrencies = () => async (dispatch) => {
@@ -32,6 +32,6 @@ export const fetchCurrencies = () => async (dispatch) => {
 export const saveExpense = (expense) => async (dispatch) => {
   dispatch(requestCurrencies());
   const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-  const currenciesRates = await response.json();
-  dispatch(addExpense(expense, currenciesRates));
+  const exchangeRates = await response.json();
+  dispatch(addExpense(expense, exchangeRates));
 };
