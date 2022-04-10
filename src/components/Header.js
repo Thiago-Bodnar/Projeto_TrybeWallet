@@ -8,7 +8,7 @@ class Header extends Component {
       const total = expenses.reduce((acc, curr) => {
         const { currency, exchangeRates, value } = curr;
         const { ask } = Object.values(exchangeRates)
-          .find((currencie) => currencie.code === currency);
+          .find((exchange) => exchange.code === currency);
         acc += (ask * value);
         return acc;
       }, 0).toFixed(2);

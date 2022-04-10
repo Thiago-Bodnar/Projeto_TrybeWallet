@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { saveExpense } from '../actions';
+import { saveChanges, saveExpense } from '../actions';
 
 class ExpensesForm extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ class ExpensesForm extends Component {
   };
 
   handleClick = () => {
-    // const data = this.state;
     const { setExpenseToState } = this.props;
     setExpenseToState(this.state);
     this.setState({
@@ -31,6 +30,15 @@ class ExpensesForm extends Component {
       description: '',
     });
   };
+
+  handleEdit = () => {
+    const { setEditedExpense, editingExchange } = this.props;
+    setEditedExpense(this.state, editingExchange);
+    this.setState({
+      value: '',
+      description: '',
+    });
+  }
 
   render() {
     const {
@@ -68,6 +76,7 @@ class ExpensesForm extends Component {
           Moeda
           <select
             id="currencie-select"
+            data-testid="currency-input"
             name="currency"
             value={ currency }
             onChange={ this.handleChange }
@@ -111,13 +120,12 @@ class ExpensesForm extends Component {
             <option value="Saúde">Saúde</option>
           </select>
         </label>
-        {
-          isEditing ? <button type="button">Editar Despesa</button>
-            :
-            <button type="button" onClick={ this.handleClick }>
-              Adicionar despesa
-            </button>
-        }
+        <button
+          type="button"
+          onClick={ isEditing ? this.handleEdit : this.handleClick }
+        >
+          { isEditing ? 'Editar despesa' : 'Adicionar despesa' }
+        </button>
       </form>
     );
   }
@@ -127,16 +135,22 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
   isEditing: state.wallet.isEditing,
+  editingExchange: state.wallet.editingExchange,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setExpenseToState: (expense) => dispatch(saveExpense(expense)),
+  setEditedExpense: (newExpense, exchangeRates) => dispatch(
+    saveChanges(newExpense, exchangeRates),
+  ),
 });
 
 ExpensesForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.any).isRequired,
   setExpenseToState: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
+  setEditedExpense: PropTypes.func.isRequired,
+  editingExchange: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesForm);
