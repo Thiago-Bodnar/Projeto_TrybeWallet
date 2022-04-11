@@ -1,0 +1,16 @@
+.login__container {
+  background-color: var(--background);
+  height: 100vmax;
+  width: 100vw;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+}
+
+.login__wrapper {
+  background-color: var(--input);
+  height: 400px;
+  width: 400px;
+}
