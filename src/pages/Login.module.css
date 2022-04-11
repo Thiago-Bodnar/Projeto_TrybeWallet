@@ -1,6 +1,9 @@
 .login__container {
-  background-color: var(--background);
-  height: 100vmax;
+  align-items: center;
+  background-color: var(--input);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
   width: 100vw;
 }
 
@@ -12,5 +15,9 @@ img {
 .login__wrapper {
   background-color: var(--input);
   height: 400px;
-  width: 400px;
+  width: 300px;
+}
+
+h1 , p {
+  text-align: center;
 }

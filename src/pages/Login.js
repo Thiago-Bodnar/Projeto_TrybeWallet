@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { setEmail } from '../actions';
-import styles from './Login.module.css';
 import login from '../images/login.svg';
+import styles from './Login.module.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -52,27 +53,37 @@ class Login extends React.Component {
     return (
       <div className={ styles.login__container }>
         <div className={ styles.login__wrapper }>
-          <h1>Trybe Wallet</h1>
+          <h1 className="h3 mb-3 fw-normal">Trybe Wallet</h1>
           <img src={ login } alt="person looking at a expense sheet" />
           <form>
-            <input
-              name="email"
-              type="email"
-              value={ email }
-              data-testid="email-input"
-              onChange={ this.handleChange }
-              placeholder="E-mail"
-            />
-            <input
-              name="password"
-              type="password"
-              value={ password }
-              data-testid="password-input"
-              onChange={ this.handleChange }
-              placeholder="Senha"
-            />
+            <div className="form-floating">
+
+              <input
+                name="email"
+                className="form-control"
+                type="email"
+                value={ email }
+                data-testid="email-input"
+                onChange={ this.handleChange }
+                placeholder="E-mail"
+              />
+            </div>
+            <div className="form-floating">
+
+              <input
+                name="password"
+                type="password"
+                className="form-control"
+                value={ password }
+                data-testid="password-input"
+                onChange={ this.handleChange }
+                placeholder="Senha"
+              />
+            </div>
+
             <button
               disabled={ isButtonDisabled }
+              className="w-100 btn btn-lg btn-primary"
               type="button"
               onClick={ this.handleClick }
             >
@@ -80,6 +91,7 @@ class Login extends React.Component {
 
             </button>
           </form>
+          <p className="mt-5 mb-3 text-muted">Thiago Bodnar - 2022</p>
         </div>
       </div>
     );
