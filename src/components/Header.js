@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './Header.module.css';
 
 class Header extends Component {
     reduceTotal = () => {
@@ -19,7 +21,7 @@ class Header extends Component {
       const { userEmail } = this.props;
       const total = this.reduceTotal();
       return (
-        <header>
+        <header className={ styles.header__container }>
           <p data-testid="email-field">{ userEmail }</p>
           <p data-testid="total-field">{ total }</p>
           <p data-testid="header-currency-field">BRL</p>

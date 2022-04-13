@@ -53,11 +53,10 @@ class Login extends React.Component {
     return (
       <div className={ styles.login__container }>
         <div className={ styles.login__wrapper }>
-          <h1 className="h3 mb-3 fw-normal">Trybe Wallet</h1>
+          <h1 className="h1 mb-3 fw-normal">Trybe Wallet</h1>
           <img src={ login } alt="person looking at a expense sheet" />
           <form>
             <div className="form-floating">
-
               <input
                 name="email"
                 className="form-control"
