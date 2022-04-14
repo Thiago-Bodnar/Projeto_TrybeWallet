@@ -1,4 +1,9 @@
 .header__container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+}
+
+.data__wrapper {
+  display: flex;
+  flex-direction: row;
 }

@@ -1,7 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './Header.module.css';
 
 class Header extends Component {
@@ -22,9 +22,14 @@ class Header extends Component {
       const total = this.reduceTotal();
       return (
         <header className={ styles.header__container }>
-          <p data-testid="email-field">{ userEmail }</p>
-          <p data-testid="total-field">{ total }</p>
-          <p data-testid="header-currency-field">BRL</p>
+          <div className={ styles.header__wrapper }>
+            <h2>TrybeWallet</h2>
+          </div>
+          <div className={ styles.data__wrapper }>
+            <p data-testid="email-field">{ userEmail }</p>
+            <p data-testid="total-field">{ total }</p>
+            <p data-testid="header-currency-field">BRL</p>
+          </div>
         </header>
       );
     }
