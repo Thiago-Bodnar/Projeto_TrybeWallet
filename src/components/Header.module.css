@@ -1,4 +1,6 @@
 .header__container {
+  align-items: center;
+  background-color: var(--headline);
   display: flex;
   justify-content: space-between;
 }
@@ -14,4 +16,8 @@ a img {
   height: 52px;
   margin-left: 28px;
   width: 64px;
+}
+
+p {
+  margin-right: 12px;
 }

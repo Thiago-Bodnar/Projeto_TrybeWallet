@@ -1,0 +1,17 @@
+.table__container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-radius: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.buttons__wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+}

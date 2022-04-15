@@ -44,8 +44,7 @@ class Header extends Component {
           </a>
           <div className={ styles.data__wrapper }>
             <p>{ userEmail }</p>
-            <p>{`Gasto total: ${total} `}</p>
-            <p>BRL</p>
+            <p>{`Gasto total: ${total} BRL`}</p>
           </div>
         </header>
       );

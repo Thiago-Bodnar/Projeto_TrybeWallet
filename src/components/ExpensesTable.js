@@ -1,7 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeExpense, startEditing } from '../actions';
+import styles from './ExpensesTable.module.css';
 
 class ExpensesTable extends Component {
   convertData = () => {
@@ -39,54 +41,61 @@ class ExpensesTable extends Component {
     const convertedExpenses = this.convertData();
     const { deleteExpense, editing } = this.props;
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className={ styles.table__container }>
 
-          {
-            convertedExpenses.map((expense) => (
-              <tr key={ expense.id }>
-                <td>{ expense.description }</td>
-                <td>{ expense.tag }</td>
-                <td>{ expense.method }</td>
-                <td>{ expense.value }</td>
-                <td>{ expense.currency }</td>
-                <td>{ expense.ask }</td>
-                <td>{ expense.fixedValue }</td>
-                <td>{ expense.defaultCurrency }</td>
-                <td>
-                  <button
-                    type="button"
-                    data-testid="edit-btn"
-                    onClick={ () => editing(expense.id, expense.exchangeRates) }
-                  >
-                    Editar
-                  </button>
-                  <button
-                    type="button"
-                    data-testid="delete-btn"
-                    onClick={ () => deleteExpense(expense.id) }
-                  >
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Tag</th>
+              <th>Método de pagamento</th>
+              <th>Valor</th>
+              <th>Moeda</th>
+              <th>Câmbio utilizado</th>
+              <th>Valor convertido</th>
+              <th>Moeda de conversão</th>
+              <th>Editar/Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {
+              convertedExpenses.map((expense) => (
+                <tr key={ expense.id }>
+                  <td>{ expense.description }</td>
+                  <td>{ expense.tag }</td>
+                  <td>{ expense.method }</td>
+                  <td>{ expense.value }</td>
+                  <td>{ expense.currency }</td>
+                  <td>{ expense.ask }</td>
+                  <td>{ expense.fixedValue }</td>
+                  <td>{ expense.defaultCurrency }</td>
+                  <td>
+                    <div className="btn-group btn-group-sm">
+                      <button
+                        type="button"
+                        className="btn btn-warning"
+                        data-testid="edit-btn"
+                        onClick={ () => editing(expense.id, expense.exchangeRates) }
+                      >
+                        Editar
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-danger"
+                        data-testid="delete-btn"
+                        onClick={ () => deleteExpense(expense.id) }
+                      >
+                        Excluir
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
