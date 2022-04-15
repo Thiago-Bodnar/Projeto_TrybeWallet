@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import login from '../images/login.svg';
 import styles from './Header.module.css';
 
 class Header extends Component {
@@ -21,14 +22,30 @@ class Header extends Component {
       const { userEmail } = this.props;
       const total = this.reduceTotal();
       return (
-        <header className={ styles.header__container }>
-          <div className={ styles.header__wrapper }>
+        <header
+          className={ `d-flex
+        ${styles.header__container}
+        flex-wrap
+        py-3
+        mb-4
+        border-bottom` }
+        >
+          <a
+            href="/"
+            className="d-flex
+          align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+          >
+            <img
+              src={ login }
+              alt="person looking at a expense sheet"
+              className="bi me-2"
+            />
             <h2>TrybeWallet</h2>
-          </div>
+          </a>
           <div className={ styles.data__wrapper }>
-            <p data-testid="email-field">{ userEmail }</p>
-            <p data-testid="total-field">{ total }</p>
-            <p data-testid="header-currency-field">BRL</p>
+            <p>{ userEmail }</p>
+            <p>{`Gasto total: ${total} `}</p>
+            <p>BRL</p>
           </div>
         </header>
       );

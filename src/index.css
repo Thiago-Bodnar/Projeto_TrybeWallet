@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
 
 :root {
-  --background: #004643;
-  --headline: #fffffe;
-  --text-color: #abd1c6;
-  --button: #f9bc60;
-  --button-text: #001e1d;
-  --input: #e8e4e6;
-  --acent: #e16162;
+  --background: #e8e4e6;
+  --headline: #2b2c34;
+  --text-color: #2b2c34;
+  --button: #6246ea;
+  --button-text: #fffffe;
+  --secondary: #6246ea;
+  --tertiary: #d1d1e9;
+  --acent: #e45858;
 }
 ::selection {
   background-color: var(--acent);
@@ -17,8 +18,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Oswald', sans-serif;
+  background-color: var(--background);
 }
 
 h1, h2, h3 {
   margin-bottom: 24;
+  color: var(--headline);
 }

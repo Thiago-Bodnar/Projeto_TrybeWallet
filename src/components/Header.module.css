@@ -1,9 +1,17 @@
 .header__container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .data__wrapper {
   display: flex;
   flex-direction: row;
+  margin-right: 28px;
+
+}
+
+a img {
+  height: 52px;
+  margin-left: 28px;
+  width: 64px;
 }
