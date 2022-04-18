@@ -16,6 +16,8 @@ Uma aplicação desenvolvida durante o módulo de Front-end do curso de Desenvol
 **Back-end:** awsomeAPI Cotação de moedas
 
 
+![Peek 16-04-2022 15-31](https://user-images.githubusercontent.com/94481341/163847165-aef9597c-9c7d-41c6-a3f5-2a4f2a83705f.gif)
+
 
 ## Aprendizados
 
