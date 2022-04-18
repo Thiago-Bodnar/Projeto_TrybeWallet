@@ -9,7 +9,7 @@ Uma aplicação desenvolvida durante o módulo de Front-end do curso de Desenvol
 - [Thiago Bodnar](https://www.linkedin.com/in/thiago-bodnar-b1a204226/)
 
 
-## Stack utilizada
+## Stacks utilizadas
 
 **Front-end:** React, Redux, Bootsrap
 
