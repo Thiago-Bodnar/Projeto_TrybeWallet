@@ -41,8 +41,7 @@ class ExpensesTable extends Component {
     const convertedExpenses = this.convertData();
     const { deleteExpense, editing } = this.props;
     return (
-      <div className={ styles.table__container }>
-
+      <div className={ `${styles.table__container} table-responsive` }>
         <table className="table table-hover">
           <thead>
             <tr>
@@ -71,7 +70,7 @@ class ExpensesTable extends Component {
                   <td>{ expense.fixedValue }</td>
                   <td>{ expense.defaultCurrency }</td>
                   <td>
-                    <div className="btn-group btn-group-sm">
+                    <div className={ `${styles.buttons} btn-group btn-group-sm` }>
                       <button
                         type="button"
                         className="btn btn-warning"

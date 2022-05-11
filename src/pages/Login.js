@@ -55,10 +55,11 @@ class Login extends React.Component {
         <div className={ styles.login__wrapper }>
           <h1 className="h1 mb-3 fw-normal">Trybe Wallet</h1>
           <img src={ login } alt="person looking at a expense sheet" />
-          <form>
+          <form autoComplete="off">
             <div className="form-floating">
               <input
                 name="email"
+                autoComplete="off"
                 className="form-control"
                 type="email"
                 value={ email }
@@ -71,6 +72,7 @@ class Login extends React.Component {
 
               <input
                 name="password"
+                autoComplete="off"
                 type="password"
                 className="form-control"
                 value={ password }

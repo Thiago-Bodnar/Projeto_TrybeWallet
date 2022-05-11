@@ -10,8 +10,6 @@ table {
   margin-right: 16px;
 }
 
-.buttons__wrapper {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
+.buttons {
+  vertical-align: baseline;
 }
